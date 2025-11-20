@@ -110,7 +110,7 @@ export default function OrderFormScreen({ route, navigation }) {
 
         <View style={styles.paymentInfo}>
           <Text style={styles.sectionTitle}>💳 Payment Information</Text>
-          <Text style={styles.upiId}>UPI ID: your-upi-id@paytm</Text>
+          <Text style={styles.upiId}>UPI ID: jaatharish16@axl</Text>
           <Text style={styles.paymentNote}>
             Please complete the payment and enter the transaction ID below
           </Text>
