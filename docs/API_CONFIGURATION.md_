@@ -1,0 +1,137 @@
+docs/API_CONFIGURATION.md_
+
+# 🔌 API Configuration Guide
+
+Connect your app to your backend API.
+
+## Current Setup
+
+The app currently uses **mock data** for testing. You need to configure your real API endpoints.
+
+## API Endpoints Required
+
+### 1. Get Products
+GET /api/products
+
+
+**Response:**
+```json
+[
+  {
+    "id": "1",
+    "game_type": 1,
+    "package_name": "60 UC",
+    "currency_amount": 60,
+    "price": 75,
+    "description": "Perfect for beginners",
+    "is_active": true
+  }
+]
+2. Create Order
+POST /api/orders
+Request Body:
+
+{
+  "product_id": "1",
+  "customer_name": "John Doe",
+  "game_id": "123456789",
+  "contact_email": "john@example.com",
+  "contact_phone": "+91 9876543210",
+  "quantity": 1,
+  "total_amount": 75,
+  "upi_transaction_id": "UPI123456",
+  "payment_status": 1,
+  "order_status": 1
+}
+Response:
+
+{
+  "success": true,
+  "orderId": "ORD123456",
+  "message": "Order placed successfully"
+}
+3. Track Order
+GET /api/orders/track/:gameId
+Response:
+
+{
+  "orders": [
+    {
+      "id": "ORD123456",
+      "product_name": "60 UC",
+      "quantity": 1,
+      "total_amount": 75,
+      "payment_status": 2,
+      "order_status": 3,
+      "create_time": "1234567890000"
+    }
+  ]
+}
+Configuration Steps
+Step 1: Update API Base URL
+Edit src/services/api.js:
+
+// Replace this:
+const API_BASE_URL = 'https://your-api-endpoint.com/api';
+
+// With your actual API URL:
+const API_BASE_URL = 'https://api.yourdomain.com/api';
+Step 2: Remove Mock Data
+In src/services/api.js, uncomment the real API calls and remove mock data:
+
+// Remove MOCK_PRODUCTS array
+
+// In getProducts function:
+getProducts: async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/products`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw error;
+  }
+},
+Step 3: Test API Integration
+Start the app
+Check console for errors
+Test each feature:
+View products
+Place order
+Track order
+Data Types Reference
+Game Type Enum
+1 = BGMI
+2 = FreeFire
+Payment Status Enum
+1 = Pending
+2 = Completed
+Order Status Enum
+1 = Pending
+2 = Processing
+3 = Fulfilled
+Authentication (Optional)
+If your API requires authentication:
+
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+Error Handling
+The app includes basic error handling. Customize error messages in each API function.
+
+Testing
+Use tools like Postman to test your API endpoints before integrating.
+
+🆘 Need Help?
+Check your API documentation
+Test endpoints with Postman
+Open an issue on GitHub
+Happy coding! 🚀
+
+
+---
