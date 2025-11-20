@@ -1,3 +1,4 @@
+
 # 🎮 Game Currency Store - Mobile App
 
 A complete mobile application for selling BGMI UC and Free Fire Diamonds with integrated order management and UPI payment tracking.
@@ -10,3 +11,11 @@ A complete mobile application for selling BGMI UC and Free Fire Diamonds with in
 - 🔍 **Order Tracking** - Track orders by Game ID
 - 🎨 **Modern UI** - Clean, professional mobile interface
 - 📊 **Real-time Status** - Payment and order status tracking
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- Expo Go app (for testing on mobile)
