@@ -1,0 +1,48 @@
+# 🚀 Quick Start Guide
+
+Get your Game Currency Store app running in 10 minutes!
+
+## Step 1: Install Node.js
+
+Download and install from: https://nodejs.org/
+(Choose LTS version)
+
+## Step 2: Clone Repository
+
+```bash
+git clone https://github.com/beniwalharish965-lab/game-currency-store.git
+cd game-currency-store
+Step 3: Install Dependencies
+npm install
+This will install all required packages.
+
+Step 4: Start Development Server
+npx expo start
+Step 5: Test on Your Phone
+Install Expo Go app from Play Store
+Scan the QR code shown in terminal
+App will open on your phone!
+Step 6: Configure (Important!)
+Set Your API Endpoint
+Edit src/services/api.js:
+
+const API_BASE_URL = 'https://your-api-endpoint.com/api';
+Set Your UPI ID
+Edit src/screens/OrderFormScreen.js:
+
+<Text style={styles.upiId}>UPI ID: your-upi-id@paytm</Text>
+Step 7: Build APK
+npm install -g eas-cli
+eas login
+eas build --platform android --profile preview
+Wait 10-15 minutes, then download your APK!
+
+🎉 You're Done!
+Your app is ready to use. Share the APK with customers!
+
+⚠️ Important Notes
+The app uses mock data by default
+Configure your API before production use
+Update UPI ID for payments
+Test thoroughly before distributing
+🆘 Need Help?
